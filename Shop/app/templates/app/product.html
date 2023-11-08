@@ -1,0 +1,24 @@
+{% extends 'app/main.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="/static/{{ product.image }}" alt="Product Image" class="img-fluid">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="mb-3">{{ product.title }}</h1>
+                <p class="lead">{{ product.description }}</p>
+                <p class="mb-4">Price: ${{ product.price }}</p>
+                {% if user.is_authenticated %}
+                    {% if product.id in products_in_cart %}
+                        <span class="in-cart">In cart</span>
+                    {% else %}
+                        <button class="button buy" data-id="{{ product.id }}"><i class="icon-basket"></i> Buy</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

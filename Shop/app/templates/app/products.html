@@ -1,0 +1,57 @@
+{% extends 'app/main.html' %}
+{% load static %}
+
+{% block main %}
+    <div class="main-content">
+        <div class="row">
+            {% include "app/categories.html" %}
+            <div class="col-md-9">
+                <div class="d-flex">
+                    <h3>
+                    {% if category %}
+                        {{ category.title }}
+                    {% endif %}
+                    {% if search %}
+                        {{ search }}
+                    {% endif %}
+                    </h3>
+                </div>
+                <br>
+                <div class="product-grid">
+                    <div class="container">
+                        <div class="row">
+                            {% if products %}
+                                {% for product in products %}
+                                    <div class="col-md-4">
+                                        <a href="/product/{{ product.slug }}" class="card mb-4">
+                                            <div class="card-img-top"
+                                                 style="background-image: url('/static/{{ product.image }}');"></div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ product.title }}</h5>
+                                                <div class="flex-between">
+                                                    {% if user.is_authenticated %}
+                                                        {% if product.id in products_in_cart %}
+                                                            <span class="in-cart">In cart</span>
+                                                        {% else %}
+                                                            <span class="button buy" data-id="{{ product.id }}"><i
+                                                                    class="icon-basket"></i> Buy</span>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                    <span class="price">{{ product.price }}$</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    Nothing found
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

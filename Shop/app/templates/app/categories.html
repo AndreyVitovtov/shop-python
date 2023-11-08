@@ -1,0 +1,30 @@
+<div class="col-md-3 bg-light categories">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-4">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            {% for category in categories %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                       data-bs-toggle="dropdown">
+                                        {{ category.title }}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        {% for subcategory in category.subcategory_set.all %}
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link" href="/category/{{ subcategory.slug }}"
+                                                   role="button">
+                                                    {{ subcategory.title }}
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>

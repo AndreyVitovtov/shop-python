@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #221F1F;
+    --secondary-color: #C7493A;
+    --text-color: #d1d1d1;
+    --background-color: #f0f0f0;
+    --button-background: var(--secondary-color);
+    --button-text-color: #fff;
+    --button-padding: 6px 12px;
+    --button-border-radius: 3px;
+    --button-font-size: 18px;
+    --icon-font-size: 20px;
+    --header-height: 80px;
+    --header-search-height: 36px;
+    --logo-color: #fff;
+}

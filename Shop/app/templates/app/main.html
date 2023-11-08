@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}Wonder Mart</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/fontello.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'app/css/main.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'app/icons/favicon.png' %}">
+    <script src="{% static 'app/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'app/js/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'app/js/main.js' %}"></script>
+    {% block css_file %}{% load static %}{% endblock %}
+    {% csrf_token %}
+</head>
+<body>
+{% include "app/header.html" %}
+<main>
+    {% block main %}{% endblock %}
+</main>
+{% include "app/footer.html" %}
+</body>
+</html>

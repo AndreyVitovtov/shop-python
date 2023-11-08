@@ -1,0 +1,60 @@
+{% extends 'app/main.html' %}
+{% load static %}
+{% load mathfilters %}
+
+{% block title %}
+    Cart |
+{% endblock %}
+
+{% block main %}
+    <div class="container cart">
+
+        {% if cart %}
+            <h1 class="my-4">Cart of goods</h1>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Count</th>
+                    <th scope="col">Total</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for c in cart %}
+                    <tr>
+                        <td>
+                            <a href="/product/{{ c.product.slug }}/">
+                                <div class="img" style="background-image: url('/static/{{ c.product.image }}');"></div>
+                            </a>
+                        </td>
+                        <th scope="row"><a href="/product/{{ c.product.slug }}/">{{ c.product.title }}</a></th>
+                        <td>$<span class="product-price">{{ c.product.price }}</span></td>
+                        <td><span class="reduce"><i class="icon-minus"></i></span> <span class="count-products">{{ c.count }}</span> <span class="increase"><i class="icon-plus"></i></span></td>
+                        <td>$<span class="total-price-product">{{ c.count|mul:c.product.price|floatformat:2 }}</span></td>
+                        <td>
+                            <button class="button remove-from-cart" data-id="{{ c.product.id }}"><i class="icon-trash-8"></i> Remove</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="text-end">
+                <p><strong>Total: $<span class="total-price">{{ total_price }}</span></strong></p>
+            </div>
+
+            <div class="text-end">
+                <button class="button checkout">Checkout</button>
+            </div>
+        {% else %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                Cart is empty
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

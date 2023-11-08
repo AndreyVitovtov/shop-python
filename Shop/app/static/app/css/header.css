@@ -1,0 +1,114 @@
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+i.icon {
+    font-size: var(--icon-font-size);
+}
+
+.btn {
+    background-color: var(--button-background);
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+}
+
+.btn:hover {
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: var(--logo-color);
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.catalog-button button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: var(--button-padding);
+    border: none;
+    border-radius: var(--button-border-radius);
+    margin-right: 10px;
+    height: var(--header-search-height);
+}
+
+.search-bar button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.user-actions {
+    text-align: right;
+}
+
+.user-actions a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.cart-button {
+    color: var(--button-text-color);
+    border: none;
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+    padding: 8px 5px 5px 5px;
+}
+
+.cart-button:hover {
+    background-color: var(--button-background);
+}
+
+.cart-count-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background-color: var(--button-background);
+}
+
+.cart-count {
+    color: #d1d1d1;
+    font-size: 13px;
+    font-weight: bold;
+}
